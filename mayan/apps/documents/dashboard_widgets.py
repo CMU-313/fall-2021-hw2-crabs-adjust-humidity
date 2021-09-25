@@ -44,7 +44,7 @@ class DashboardWidgetDocumentFilePagesTotal(DashboardWidgetNumeric):
 class DashboardWidgetReviewerManagement(DashboardWidgetNumeric):
     icon = icon_document_edit
     label = _('Reviewer Management')
-    link = reverse_lazy(viewname='documents:document_list')
+    link = reverse_lazy(viewname='documents:reviewer_management')
     link_icon = icon_statistics
 
     def render(self, request):
