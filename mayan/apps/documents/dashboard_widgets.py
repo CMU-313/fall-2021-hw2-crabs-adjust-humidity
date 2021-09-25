@@ -8,7 +8,7 @@ from mayan.apps.mayan_statistics.icons import icon_statistics
 from .icons import (
     icon_dashboard_documents_in_trash, icon_dashboard_document_types,
     icon_dashboard_pages_per_month, icon_dashboard_new_documents_this_month,
-    icon_dashboard_total_document
+    icon_dashboard_total_document, icon_document_edit
 )
 from .permissions import (
     permission_document_view, permission_document_type_view
@@ -34,6 +34,25 @@ class DashboardWidgetDocumentFilePagesTotal(DashboardWidgetNumeric):
         )
         DocumentFilePage = apps.get_model(
             app_label='documents', model_name='DocumentFilePage'
+        )
+        self.count = AccessControlList.objects.restrict_queryset(
+            permission=permission_document_view, user=request.user,
+            queryset=DocumentFilePage.valid.all()
+        ).count()
+        return super().render(request)
+
+class DashboardWidgetReviewerManagement(DashboardWidgetNumeric):
+    icon = icon_document_edit
+    label = _('Reviewer Management')
+    link = reverse_lazy(viewname='documents:document_list')
+    link_icon = icon_statistics
+
+    def render(self, request):
+        AccessControlList = apps.get_model(
+            app_label='acls', model_name='AccessControlList'
+        )
+        DocumentFilePage = apps.get_model(
+            app_label='documents', model_name='Document'
         )
         self.count = AccessControlList.objects.restrict_queryset(
             permission=permission_document_view, user=request.user,

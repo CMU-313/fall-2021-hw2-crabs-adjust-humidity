@@ -37,7 +37,7 @@ from .dashboard_widgets import (
     DashboardWidgetDocumentFilePagesTotal, DashboardWidgetDocumentsInTrash,
     DashboardWidgetDocumentsNewThisMonth,
     DashboardWidgetDocumentsPagesNewThisMonth, DashboardWidgetDocumentsTotal,
-    DashboardWidgetDocumentsTypesTotal,
+    DashboardWidgetDocumentsTypesTotal, DashboardWidgetReviewerManagement,
 )
 
 # Documents
@@ -691,6 +691,10 @@ class DocumentsApp(MayanAppConfig):
         )
         dashboard_main.add_widget(
             widget=DashboardWidgetDocumentsPagesNewThisMonth, order=5
+        )
+
+        dashboard_main.add_widget(
+            widget=DashboardWidgetReviewerManagement, order=6
         )
 
         menu_documents.bind_links(
