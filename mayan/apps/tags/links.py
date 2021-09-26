@@ -67,3 +67,56 @@ link_tag_document_list = Link(
     args='object.id', icon=icon_tag_document_list,
     text=('Documents'), view='tags:tag_document_list'
 )
+link_document_multiple_reviewer_multiple_attach = Link(
+    icon=icon_document_tag_multiple_attach, text=_('Assign reviewers'),
+    view='tags:multiple_documents_reviewer_attach'
+)
+link_document_multiple_reviewer_multiple_remove = Link(
+    icon=icon_document_tag_multiple_remove, text=_('Remove reviewers'),
+    view='tags:multiple_documents_selection_reviewer_remove'
+)
+link_document_reviewer_list = Link(
+    args='resolved_object.pk', icon=icon_document_tag_list,
+    permissions=(permission_tag_view,), text=_(' Add reviewers'),
+    view='tags:document_reviewer_list'
+)
+link_document_reviewer_multiple_remove = Link(
+    args='object.id', icon=icon_document_tag_multiple_remove,
+    permissions=(permission_tag_remove,), text=_(' Remove reviewers'),
+    view='tags:single_document_multiple_reviewer_remove'
+)
+link_document_reviewer_multiple_attach = Link(
+    args='object.pk', icon=icon_document_tag_multiple_attach,
+    permissions=(permission_tag_attach,), text=_('Assign reviewers'),
+    view='tags:reviewer_attach'
+)
+
+link_reviewer_create = Link(
+    icon=icon_tag_create, permissions=(permission_tag_create,),
+    text=_('Create new reviewer'), view='tags:reviewer_create'
+)
+link_reviewer_delete = Link(
+    args='object.id', icon=icon_tag_delete,
+    permissions=(permission_tag_delete,), tags='dangerous',
+    text=_('Delete'), view='tags:reviewer_delete'
+)
+link_reviewer_edit = Link(
+    args='object.id', icon=icon_tag_edit,
+    permissions=(permission_tag_edit,), text=_('Edit'),
+    view='tags:reviewer_edit'
+)
+link_reviewer_list = Link(
+    condition=get_cascade_condition(
+        app_label='tags', model_name='Tag',
+        object_permission=permission_tag_view,
+    ), icon=icon_tag_list,
+    text=_('Reviewer management'), view='tags:reviewer_list'
+)
+link_reviewer_multiple_delete = Link(
+    icon=icon_tag_delete, permissions=(permission_tag_delete,),
+    text=_('Delete'), view='tags:reviewer_multiple_delete'
+)
+link_reviewer_document_list = Link(
+    args='object.id', icon=icon_tag_document_list,
+    text=('Documents'), view='tags:reviewer_document_list'
+)

@@ -16,3 +16,15 @@ class TagMultipleSelectionForm(FilteredSelectionForm):
         required = False
         widget_class = TagFormWidget
         widget_attributes = {'class': 'select2-tags'}
+
+class ReviewerMultipleSelectionForm(FilteredSelectionForm):
+    class Media:
+        js = ('tags/js/tags_form.js',)
+
+    class Meta:
+        allow_multiple = True
+        field_name = 'tags'
+        label = _('Reviewers')
+        required = False
+        widget_class = TagFormWidget
+        widget_attributes = {'class': 'select2-tags'}

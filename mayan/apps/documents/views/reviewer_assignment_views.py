@@ -22,12 +22,12 @@ from ..permissions import (
 from .document_version_views import DocumentVersionPreviewView
 
 __all__ = (
-    'ReviewerManagementView'
+    'ReviewerAssignmentView'
 )
 logger = logging.getLogger(name=__name__)
 
 
-class ReviewerManagementView(SingleObjectListView):
+class ReviewerAssignmentView(SingleObjectListView):
     object_permission = permission_document_view
 
     def get_context_data(self, **kwargs):
@@ -59,7 +59,7 @@ class ReviewerManagementView(SingleObjectListView):
                 'permission for any document or document type.'
             ),
             'no_results_title': _('No documents available'),
-            'title': _('Reviewer Management'),
+            'title': _('Reviewer Assignment'),
         }
 
     def get_source_queryset(self):

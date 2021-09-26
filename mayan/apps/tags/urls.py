@@ -8,7 +8,9 @@ from .api_views import (
 from .views import (
     DocumentTagListView, TagAttachActionView, TagCreateView,
     TagDeleteActionView, TagEditView, TagListView, TagRemoveActionView,
-    TagDocumentListView
+    TagDocumentListView, DocumentReviewerListView, ReviewerAttachActionView,
+    ReviewerCreateView, ReviewerDeleteActionView, ReviewerEditView, ReviewerListView,
+    ReviewerRemoveActionView, ReviewerDocumentListView
 )
 
 urlpatterns = [
@@ -55,6 +57,50 @@ urlpatterns = [
     url(
         regex=r'^tags/multiple/delete/$', name='tag_multiple_delete',
         view=TagDeleteActionView.as_view()
+    ),
+    url(
+        regex=r'^documents/(?P<document_id>\d+)/reviewers/$',
+        name='document_reviewer_list', view=DocumentReviewerListView.as_view()
+    ),
+    url(
+        regex=r'^documents/(?P<document_id>\d+)/reviewers/multiple/attach/$',
+        name='reviewer_attach', view=ReviewerAttachActionView.as_view()
+    ),
+    url(
+        regex=r'^documents/(?P<document_id>\d+)/reviewers/multiple/remove/$',
+        name='single_document_multiple_reviewer_remove',
+        view=ReviewerRemoveActionView.as_view()
+    ),
+    url(
+        regex=r'^documents/multiple/reviewers/multiple/remove/$',
+        name='multiple_documents_selection_reviewer_remove',
+        view=ReviewerRemoveActionView.as_view()
+    ),
+    url(
+        regex=r'^documents/multiple/reviewers/multiple/attach/$',
+        name='multiple_documents_reviewer_attach',
+        view=ReviewerAttachActionView.as_view()
+    ),
+    url(regex=r'^reviewers/$', name='reviewer_list', view=ReviewerListView.as_view()),
+    url(
+        regex=r'^reviewers/create/$', name='reviewer_create',
+        view=ReviewerCreateView.as_view()
+    ),
+    url(
+        regex=r'^reviewers/(?P<tag_id>\d+)/delete/$', name='reviewer_delete',
+        view=ReviewerDeleteActionView.as_view()
+    ),
+    url(
+        regex=r'^reviewers/(?P<tag_id>\d+)/edit/$', name='reviewer_edit',
+        view=ReviewerEditView.as_view()
+    ),
+    url(
+        regex=r'^reviewers/(?P<tag_id>\d+)/documents/$', name='reviewer_document_list',
+        view=ReviewerDocumentListView.as_view()
+    ),
+    url(
+        regex=r'^reviewers/multiple/delete/$', name='reviewer_multiple_delete',
+        view=ReviewerDeleteActionView.as_view()
     )
 ]
 

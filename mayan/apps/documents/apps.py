@@ -37,7 +37,7 @@ from .dashboard_widgets import (
     DashboardWidgetDocumentFilePagesTotal, DashboardWidgetDocumentsInTrash,
     DashboardWidgetDocumentsNewThisMonth,
     DashboardWidgetDocumentsPagesNewThisMonth, DashboardWidgetDocumentsTotal,
-    DashboardWidgetDocumentsTypesTotal, DashboardWidgetReviewerManagement,
+    DashboardWidgetDocumentsTypesTotal, DashboardWidgetReviewerAssignment,
 )
 
 # Documents
@@ -82,7 +82,7 @@ from .links.document_links import (
     link_document_type_change, link_document_properties_edit,
     link_document_list, link_document_recently_accessed_list,
     link_document_recently_created_list, link_document_multiple_type_change,
-    link_document_preview, link_document_properties, link_document_reviewer_management
+    link_document_preview, link_document_properties, link_document_reviewer_assignment
 )
 from .links.document_file_links import (
     link_document_file_delete, link_document_file_delete_multiple,
@@ -693,9 +693,9 @@ class DocumentsApp(MayanAppConfig):
             widget=DashboardWidgetDocumentsPagesNewThisMonth, order=5
         )
 
-        dashboard_main.add_widget(
-            widget=DashboardWidgetReviewerManagement, order=6
-        )
+        # dashboard_main.add_widget(
+        #     widget=DashboardWidgetReviewerAssignment, order=6
+        # )
 
         menu_documents.bind_links(
             links=(
@@ -705,7 +705,8 @@ class DocumentsApp(MayanAppConfig):
             )
         )
 
-        menu_main.bind_links(links=(link_document_reviewer_management, menu_documents,), position=0)
+        menu_main.bind_links(links=(link_document_reviewer_assignment,), position=0)
+        menu_main.bind_links(links=(menu_documents,), position=2)
 
         menu_setup.bind_links(links=(link_document_type_setup,))
 

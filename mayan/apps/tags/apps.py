@@ -27,7 +27,12 @@ from .links import (
     link_document_multiple_tag_multiple_remove,
     link_document_tag_multiple_remove, link_document_tag_multiple_attach, link_tag_create,
     link_tag_delete, link_tag_edit, link_tag_list,
-    link_tag_multiple_delete, link_tag_document_list
+    link_tag_multiple_delete, link_tag_document_list, 
+    link_document_reviewer_list, link_document_multiple_reviewer_multiple_attach,
+    link_document_multiple_reviewer_multiple_remove,
+    link_document_reviewer_multiple_remove, link_document_reviewer_multiple_attach, 
+    link_reviewer_create, link_reviewer_delete, link_reviewer_edit, link_reviewer_list,
+    link_reviewer_multiple_delete, link_reviewer_document_list, 
 )
 from .menus import menu_tags
 from .methods import method_document_get_tags
@@ -153,7 +158,7 @@ class TagsApp(MayanAppConfig):
         source_column_tag_document_count.add_exclude(source=DocumentTag)
 
         menu_facet.bind_links(
-            links=(link_document_tag_list,), sources=(Document,)
+            links=(link_document_reviewer_multiple_remove, link_document_reviewer_list, link_document_tag_list,), sources=(Document,)
         )
 
         menu_list_facet.bind_links(
@@ -169,6 +174,7 @@ class TagsApp(MayanAppConfig):
         )
 
         menu_main.bind_links(links=(menu_tags,), position=98)
+        menu_main.bind_links(links=(link_reviewer_list, link_reviewer_create,), position=1)
 
         menu_multi_item.bind_links(
             links=(
