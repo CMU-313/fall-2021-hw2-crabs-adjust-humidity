@@ -21,10 +21,6 @@ link_document_list = Link(
     icon=icon_document_list,
     text=_('All documents'), view='documents:document_list'
 )
-link_document_reviewer_management = Link(
-    icon=icon_document_edit,
-    text=_('Reviewer management'), view='documents:reviewer_management'
-)
 link_document_recently_accessed_list = Link(
     icon=icon_document_recently_accessed_list, text=_('Recently accessed'),
     view='documents:document_recently_accessed_list'

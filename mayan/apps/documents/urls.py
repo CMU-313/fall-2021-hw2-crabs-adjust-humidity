@@ -1,4 +1,3 @@
-from mayan.apps.documents.views.reviewer_management_views import ReviewerManagementView
 from django.conf.urls import url
 
 from .api_views.document_api_views import (
@@ -443,11 +442,6 @@ urlpatterns_documents = [
         regex=r'^documents/multiple/type/$',
         name='document_multiple_type_change',
         view=DocumentTypeChangeView.as_view()
-    ),
-    url(
-        regex=r'^documents/reviewer/management/$',
-        name='reviewer_management',
-        view=ReviewerManagementView.as_view()
     ),
 ]
 
