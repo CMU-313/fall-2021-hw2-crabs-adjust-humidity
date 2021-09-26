@@ -19,24 +19,12 @@
             {% endblock base_title %}
         </title>
 
-        <link rel="preload" href="{% static 'appearance/node_modules/@fortawesome/fontawesome-free/css/all.min.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="{% static 'appearance/node_modules/@fortawesome/fontawesome-free/css/all.min.css' %}"></noscript>
-
-        <link rel="preload" href="{% static 'appearance/node_modules/bootswatch/flatly/bootstrap.min.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="{% static 'appearance/node_modules/bootswatch/flatly/bootstrap.min.css' %}"></noscript>
-
-        <link rel="preload" href="{% static 'appearance/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="{% static 'appearance/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css' %}"></noscript>
-
-        <link rel="preload" href="{% static 'appearance/node_modules/select2/dist/css/select2.min.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="{% static 'appearance/node_modules/select2/dist/css/select2.min.css'}"></noscript>
-
-        <link rel="preload" href="{% static 'appearance/node_modules/toastr/build/toastr.min.cs' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="{% static 'appearance/node_modules/toastr/build/toastr.min.cs'}"></head>noscript>
-
-        <link rel="preload" href="{% static 'appearance/css/base.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="{% static 'appearance/css/base.css'}"></noscript>
-        
+        <link href="{% static 'appearance/node_modules/@fortawesome/fontawesome-free/css/all.min.css' %}" media="screen" rel="stylesheet" type="text/css" />
+        <link href="{% static 'appearance/node_modules/bootswatch/flatly/bootstrap.min.css' %}" media="screen" rel="stylesheet" type="text/css" />
+        <link href="{% static 'appearance/node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css' %}" media="screen" rel="stylesheet" type="text/css" />
+        <link href="{% static 'appearance/node_modules/select2/dist/css/select2.min.css' %}" media="screen" rel="stylesheet" type="text/css" />
+        <link href="{% static 'appearance/node_modules/toastr/build/toastr.min.css' %}" media="screen" rel="stylesheet" type="text/css" />
+        <link href="{% static 'appearance/css/base.css' %}" media="screen" rel="stylesheet" type="text/css" />
         <style id="style-javascript"></style>
         {% appearance_app_templates template_name='head' %}
         {% block stylesheets %}{% endblock %}
