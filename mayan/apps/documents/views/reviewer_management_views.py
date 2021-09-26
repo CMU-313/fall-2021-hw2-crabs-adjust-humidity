@@ -1,38 +1,27 @@
 import logging
 
 from django.contrib import messages
-from django.urls import reverse
-from django.utils.translation import ugettext_lazy as _, ungettext
+from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.common.classes import ModelQueryFields
-from mayan.apps.views.generics import (
-    MultipleObjectFormActionView, SingleObjectDetailView,
-    SingleObjectEditView, SingleObjectListView
-)
+from mayan.apps.views.generics import SingleObjectDropdownListView
 
-from ..events import event_document_viewed
-from ..forms.document_forms import DocumentForm, DocumentPropertiesForm
-from ..forms.document_type_forms import DocumentTypeFilteredSelectForm
 from ..icons import icon_document_list
 from ..models.document_models import Document
-from ..permissions import (
-    permission_document_properties_edit, permission_document_view
-)
+from ..permissions import permission_document_view
 
-from .document_version_views import DocumentVersionPreviewView
+__all__ = ('ReviewerManagementView')
 
-__all__ = (
-    'ReviewerManagementView'
-)
 logger = logging.getLogger(name=__name__)
 
 
-class ReviewerManagementView(SingleObjectListView):
+class ReviewerManagementView(SingleObjectDropdownListView):
     object_permission = permission_document_view
 
     def get_context_data(self, **kwargs):
+        context = None
         try:
-            return super().get_context_data(**kwargs)
+            context =  super().get_context_data(**kwargs)
         except Exception as exception:
             messages.error(
                 message=_(
@@ -42,7 +31,10 @@ class ReviewerManagementView(SingleObjectListView):
                 }, request=self.request
             )
             self.object_list = Document.valid.none()
-            return super().get_context_data(**kwargs)
+            context = super().get_context_data(**kwargs)
+            
+        # context['users'] = ADD API CALL FOR LIST OF USERS HERE
+        return context
 
     def get_document_queryset(self):
         return Document.valid.all()
@@ -65,4 +57,3 @@ class ReviewerManagementView(SingleObjectListView):
     def get_source_queryset(self):
         queryset = ModelQueryFields.get(model=Document).get_queryset()
         return self.get_document_queryset().filter(pk__in=queryset)
-

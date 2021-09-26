@@ -899,6 +899,41 @@ class SingleObjectListView(
 
         return queryset
 
+class SingleObjectDropdownListView(
+    SortingViewMixin, ListModeViewMixin, PaginationMixin,
+    ViewPermissionCheckViewMixin, RestrictedQuerysetViewMixin,
+    ExtraContextViewMixin, RedirectionViewMixin, ListView
+):
+    """
+    A view that will generate a list of instances with dropdown menus from a queryset.
+    """
+    template_name = 'appearance/generic_list_dropdown.html'
+
+    def __init__(self, *args, **kwargs):
+        result = super().__init__(*args, **kwargs)
+
+        if self.__class__.mro()[0].get_queryset != SingleObjectDropdownListView.get_queryset:
+            raise ImproperlyConfigured(
+                '%(cls)s is overloading the get_queryset method. Subclasses '
+                'should implement the get_source_queryset method instead. ' % {
+                    'cls': self.__class__.__name__
+                }
+            )
+
+        return result
+
+    def get_paginate_by(self, queryset):
+        return setting_paginate_by.value
+
+    def get_queryset(self):
+        try:
+            queryset = super().get_queryset()
+        except ImproperlyConfigured:
+            self.queryset = self.get_source_queryset()
+            queryset = super().get_queryset()
+
+        return queryset
+
 
 class MultipleObjectDeleteView(MultipleObjectConfirmActionView):
     success_message_single = _('"%(object)s" deleted successfully.')
