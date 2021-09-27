@@ -34,7 +34,7 @@ class ReviewerManagementView(SingleObjectDropdownListView):
             self.object_list = Document.valid.none()
             context = super().get_context_data(**kwargs)
             
-        context['users'] = get_user_model().objects
+        context['users'] = list(get_user_model().objects.all())
 
         return context
 

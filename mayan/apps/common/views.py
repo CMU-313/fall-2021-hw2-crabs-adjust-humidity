@@ -112,7 +112,7 @@ class SetupListView(SimpleView):
 
 
 class ToolsListView(SimpleView):
-    template_name = 'appearance/generic_list_horizontal.html'
+    template_name = 'appearance/horizontal.html'
 
     def get_extra_context(self):
         return {
