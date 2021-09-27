@@ -84,4 +84,6 @@ at: https://docs.mayan-edms.com/parts/installation.html
 - [Plug-ins, other related projects](https://gitlab.com/mayan-edms/)
 - [Translations](https://www.transifex.com/rosarior/mayan-edms/)
 - [Videos](https://www.youtube.com/channel/UCJOOXHP1MJ9lVA7d8ZTlHPw)
+- [Reviwewer Dashboard Feature Documentation for HW2](https://github.com/CMU-313/fall-2021-hw2-crabs-adjust-humidity/blob/master/docs/reviewer_assignment.txt)
+- [Testing Reviwewer Dashboard Feature for HW2](https://github.com/CMU-313/fall-2021-hw2-crabs-adjust-humidity/blob/master/docs/testing_reviewer_dashboard.txt)
 
