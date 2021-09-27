@@ -397,10 +397,6 @@ a i {
     color: #d9534f;
 }
 
-.btn-danger {
-    background-color: #730e0b;
-}
-
 .btn-default.btn-outline:hover,
 .btn-primary.btn-outline:hover,
 .btn-success.btn-outline:hover,

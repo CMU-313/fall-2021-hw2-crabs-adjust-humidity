@@ -2,10 +2,11 @@ import logging
 
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth import get_user_model
 
 from mayan.apps.common.classes import ModelQueryFields
 from mayan.apps.views.generics import SingleObjectDropdownListView
-
+from mayan.apps.user_management.api_views import APIUserListView
 from ..icons import icon_document_list
 from ..models.document_models import Document
 from ..permissions import permission_document_view
@@ -33,7 +34,8 @@ class ReviewerManagementView(SingleObjectDropdownListView):
             self.object_list = Document.valid.none()
             context = super().get_context_data(**kwargs)
             
-        # context['users'] = ADD API CALL FOR LIST OF USERS HERE
+        context['users'] = list(get_user_model().objects.all())
+
         return context
 
     def get_document_queryset(self):
