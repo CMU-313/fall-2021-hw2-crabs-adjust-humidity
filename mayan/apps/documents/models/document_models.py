@@ -103,6 +103,11 @@ class Document(
             'deferred upload via the API.'
         ), verbose_name=_('Is stub?')
     )
+    reviewer = models.CharField(
+        blank=True, default='', help_text=_(
+            'Reviewer assigned to the document.'
+        ), max_length=127, verbose_name=_('Reviewer')
+    )
 
     objects = DocumentManager()
     trash = TrashCanManager()
@@ -186,7 +191,7 @@ class Document(
         return self.files.order_by('timestamp').last()
 
     def file_new(
-        self, file_object, action=None, comment=None, filename=None,
+        self, file_object, action=None, comment=None, filename=None, reviewer=None,
         _user=None
     ):
         logger.info('Creating new document file for document: %s', self)
@@ -288,12 +293,13 @@ class Document(
         return self.label or ugettext('Document stub, id: %d') % self.pk
 
     get_label.short_description = _('Label')
-
+    
+    '''
     def get_label(self):
         return self.label or ugettext('Document stub, id: %d') % self.pk
 
     get_label.short_description = _('Label')
-
+    '''
     @property
     def is_in_trash(self):
         return self.in_trash

@@ -34,7 +34,7 @@ class ReviewerManagementView(SingleObjectDropdownListView):
             self.object_list = Document.valid.none()
             context = super().get_context_data(**kwargs)
             
-        context['users'] = list(get_user_model().objects.filter(is_superuser=False, is_staff=False).order_by('username'))
+        context['users'] = list(get_user_model().objects.filter(is_superuser=False).order_by('username'))
         #get all user that is not admin, and order them by username
         return context
 
