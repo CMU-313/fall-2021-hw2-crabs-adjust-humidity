@@ -1,0 +1,26 @@
+Part 1: Creating Environment Using Existing Features
+
+1. Access the 'Documents' tab in the main menu.
+2. Follow the steps in 'New document' to upload a resume to the system.
+3. Repeat 2 as needed.
+4. In the main dashboard, access the 'Total users' widget.
+5. Under 'Actions', create new users, which will be the reviewers.
+
+Part 2: Assigning Reviewers
+
+1. Two options
+   a. Go to main dashboard and click on the 'Reviewer management' widget.
+   b. Click on 'Reviewer management' in the side menu.
+   This will bring you to the reviewer management dashboard displaying all resumes.
+   For each resume uploaded, under the name of the file you can see the option of
+   selecting a reviewer.
+2. The dropdown menu is populated with all users that have been created.
+3. Any one of these users can be selected or deselected to be assigned unassigned.
+4. Once they have been assigned, the dashboard allows for straightforward view of
+   which documents are assigned which reviewer.
+
+Part 3: Managing Reviewers as Users
+
+1. Similar to how users interact with the system, go to the main dashboard.
+2. Select 'Total users' widget.
+3. Each user/reviewer can be modified or removed.
