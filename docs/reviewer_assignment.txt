@@ -1,0 +1,9 @@
+Feature added: reviewer assignemnt
+UI change: 
+    1. added "Reviewer Assignment" to side bar;
+    2. added "Reviewer Assignment" page.
+Steps to use this feature: 
+    1. log in Mayan
+    2. tap on "Reviewer Assignment" on side bar, this should lead to "Reviewer Assignment" page
+    3. For any file you wish to assignment reviewer to, tap on the dropdown menu and select the reviewer to assign
+Testing this feature: detailed testing steps are included in: [Testing Reviewer Dashboard Feature for HW2] (https://github.com/CMU-313/fall-2021-hw2-crabs-adjust-humidity/blob/master/docs/testing_reviewer_dashboard.txt)
