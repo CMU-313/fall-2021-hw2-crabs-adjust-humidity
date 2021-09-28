@@ -1,0 +1,9 @@
+Feature added: Reviewer Management
+UI change: 
+    1. Added "Reviewer Management" to side bar
+    2. Added "Reviewer Management" page
+Steps to use this feature: 
+    1. Log into Mayan
+    2. Click on "Reviewer Management" on side bar, this should lead to "Reviewer Management" page
+    3. For any file you wish to assignment reviewer to, click on the dropdown menu and select the reviewer to assign
+Testing this feature: detailed testing steps are included in: [Testing Reviewer Dashboard Feature for HW2] (https://github.com/CMU-313/fall-2021-hw2-crabs-adjust-humidity/blob/master/docs/testing_reviewer_dashboard.txt)
