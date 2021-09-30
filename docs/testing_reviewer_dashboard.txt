@@ -13,11 +13,11 @@ Part 2: Assigning Reviewers
    b. Click on 'Reviewer management' in the side menu.
    This will bring you to the reviewer management dashboard displaying all resumes.
    For each resume uploaded, under the name of the file you can see the option of
-   selecting a reviewer.
-2. The dropdown menu is populated with all users that have been created.
+   selecting multiple reviewers.
+2. The dropdown menu is populated with all users that have been created, ordered alphabetically by username.
 3. Any one of these users can be selected or deselected to be assigned unassigned.
-4. Once they have been assigned, the dashboard allows for straightforward view of
-   which documents are assigned which reviewer.
+4. TO DO: Once they have been assigned, the dashboard allows for straightforward view of
+   which documents are assigned to which reviewer. See Issue #15, PR #29 for current working solutions. 
 
 Part 3: Managing Reviewers as Users
 
