@@ -6,7 +6,6 @@ from django.contrib.auth import get_user_model
 
 from mayan.apps.common.classes import ModelQueryFields
 from mayan.apps.views.generics import SingleObjectDropdownListView
-from mayan.apps.user_management.api_views import APIUserListView
 from ..icons import icon_document_list
 from ..models.document_models import Document
 from ..permissions import permission_document_view
@@ -34,8 +33,10 @@ class ReviewerManagementView(SingleObjectDropdownListView):
             self.object_list = Document.valid.none()
             context = super().get_context_data(**kwargs)
             
+        #Get all users that aren't administrators, and order them by username
+        context['hide_multi_item_actions'] = True 
+        #context['hide_link'] = True 
         context['users'] = list(get_user_model().objects.filter(is_superuser=False, is_staff=False).order_by('username'))
-        #get all user that is not admin, and order them by username
         return context
 
     def get_document_queryset(self):
